@@ -2,6 +2,7 @@ import { waitFor } from "@testing-library/react";
 import Joke from "./Joke";
 import renderingWithAppContext from "../../utilsForTests/renderingWithAppContext";
 import mockingOutAPIrequests from "./../../utilsForTests/mockingOutAPIrequests";
+import getApiData from "./../../utils/getApiData";
 
 describe("Joke component tests", () => {
   beforeAll(() => {
@@ -13,8 +14,10 @@ describe("Joke component tests", () => {
     const { getByTestId } = renderingWithAppContext(<Joke />, {
       selectedCategory: "my category",
       setSelectedCategory: () => {},
-      setError: () => {},
-      setWaitingForTheServer: () => {},
+      getData: getApiData(
+        () => {},
+        () => {}
+      ),
     });
 
     await waitFor(() => {

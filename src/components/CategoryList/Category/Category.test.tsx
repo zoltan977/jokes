@@ -26,8 +26,7 @@ describe("Category component tests", () => {
       {
         selectedCategory: "",
         setSelectedCategory,
-        setError: () => {},
-        setWaitingForTheServer: () => {},
+        getData: () => {},
       }
     );
 

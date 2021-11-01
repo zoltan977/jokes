@@ -13,14 +13,11 @@ const App = () => {
   const [error, setError] = useState<string>("");
   const [waitingForTheServer, setWaitingForTheServer] = useState(false);
 
+  const getData = getApiData(setError, setWaitingForTheServer);
+
   useEffect(() => {
-    getApiData(
-      routes.categories,
-      setCategories,
-      setError,
-      setWaitingForTheServer
-    );
-  }, []);
+    getData(routes.categories, setCategories);
+  }, []);// eslint-disable-line
 
   return (
     <div className="App">
@@ -41,8 +38,7 @@ const App = () => {
           value={{
             selectedCategory,
             setSelectedCategory,
-            setError,
-            setWaitingForTheServer,
+            getData,
           }}
         >
           <CategoryList categories={categories} />

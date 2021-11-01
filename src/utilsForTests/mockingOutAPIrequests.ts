@@ -14,7 +14,7 @@ const mockingOutAPIrequests = () => {
       const url: string = config.url || "";
 
       const search: string = new URL(url).search;
-      const searchObj: any = new URLSearchParams(search);
+      const searchObj: URLSearchParams = new URLSearchParams(search);
       const category = searchObj.get("category");
 
       return [200, { value: `${category} joke` }];

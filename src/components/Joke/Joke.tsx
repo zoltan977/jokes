@@ -1,27 +1,18 @@
 import "./Joke.css";
 import { useEffect, useState, useContext } from "react";
 import AppContext, { IAppContext } from "../../AppContext/AppContext";
-import getApiData from "../../utils/getApiData";
 import { routes } from "../../utils/apiRoutes";
 
 const Joke = () => {
   const [currentJoke, setCurrentJoke] = useState<{ value: string }>({
     value: "",
   });
-  const {
-    selectedCategory: category,
-    setError,
-    setWaitingForTheServer,
-  } = useContext<IAppContext>(AppContext);
+  const { selectedCategory: category, getData } =
+    useContext<IAppContext>(AppContext);
 
   useEffect(() => {
-    getApiData(
-      routes.categoryJokes(category),
-      setCurrentJoke,
-      setError,
-      setWaitingForTheServer
-    );
-  }, [category]);
+    getData(routes.categoryJokes(category), setCurrentJoke);
+  }, [category]);// eslint-disable-line
 
   return (
     <div className="Joke" data-testid="Joke">

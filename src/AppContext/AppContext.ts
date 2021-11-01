@@ -3,15 +3,16 @@ import React from "react";
 export interface IAppContext {
   selectedCategory: string;
   setSelectedCategory: React.Dispatch<React.SetStateAction<string>>;
-  setError: React.Dispatch<React.SetStateAction<string>>;
-  setWaitingForTheServer: React.Dispatch<React.SetStateAction<boolean>>;
+  getData: (
+    url: string,
+    setData: React.Dispatch<React.SetStateAction<any>>
+  ) => void;
 }
 
 const AppContext = React.createContext<IAppContext>({
   selectedCategory: "",
   setSelectedCategory: () => {},
-  setError: () => {},
-  setWaitingForTheServer: () => {},
+  getData: () => {},
 });
 
 export default AppContext;
