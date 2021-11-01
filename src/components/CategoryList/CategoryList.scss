@@ -1,0 +1,16 @@
+.CategoryList {
+  border: 2px solid red;
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1em;
+  padding: 1em;
+  margin: 0 auto;
+
+  .Category {
+    span {
+      cursor: pointer;
+    }
+  }
+}
