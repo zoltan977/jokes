@@ -5,6 +5,7 @@ import Category from "./Category/Category";
 interface IProps {
   categories: string[];
 }
+
 const CategoryList: React.FC<IProps> = ({ categories }) => {
   const renderCategories = (): JSX.Element[] => {
     return categories.map((c, i) => <Category key={i} category={c} />);

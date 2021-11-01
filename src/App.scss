@@ -1,0 +1,23 @@
+.App {
+  h1 {
+    text-align: center;
+  }
+
+  div.error {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    width: fit-content;
+    max-width: 50%;
+
+    background-color: rgba($color: gray, $alpha: 0.75);
+    color: red;
+    font-weight: bold;
+
+    padding: 1em;
+
+    cursor: pointer;
+  }
+}

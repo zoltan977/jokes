@@ -1,5 +1,5 @@
 import "./Category.css";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import AppContext from "../../../AppContext/AppContext";
 
 interface IProps {
@@ -9,11 +9,15 @@ interface IProps {
 const Category: React.FC<IProps> = ({ category }) => {
   const { selectedCategory, setSelectedCategory } = useContext(AppContext);
 
+  const click = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    setSelectedCategory(category);
+  };
+
   return (
     <div
       className="Category"
       style={{ backgroundColor: selectedCategory === category ? "red" : "" }}
-      onClick={(e) => setSelectedCategory(category)}
+      onClick={click}
     >
       <span>{category ? category : "none"}</span>
     </div>

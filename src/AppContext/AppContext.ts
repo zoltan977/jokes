@@ -1,13 +1,13 @@
 import React from "react";
 
-interface IAppContext {
+export interface IAppContext {
   selectedCategory: string;
   setSelectedCategory: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const appContext = React.createContext<IAppContext>({
+const AppContext = React.createContext<IAppContext>({
   selectedCategory: "",
   setSelectedCategory: () => {},
 });
 
-export default appContext;
+export default AppContext;

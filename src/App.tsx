@@ -5,20 +5,25 @@ import httpClient from "axios";
 import Joke from "./components/Joke/Joke";
 import AppContext from "./AppContext/AppContext";
 
-function App() {
+const App = () => {
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [error, setError] = useState("");
 
   const getCategories = async () => {
     try {
+      setError("");
       const response = await httpClient.get(
         "https://api.chucknorris.io/jokes/categories"
       );
-
-      console.log("categories: ", response.data);
       setCategories(response.data);
-    } catch (error) {
+    } catch (error: any) {
       console.log(error);
+
+      const err = error?.response?.data?.error;
+      const msg = error?.response?.data?.message;
+
+      if (err) setError(`${err}: ${msg}`);
     }
   };
 
@@ -28,6 +33,12 @@ function App() {
 
   return (
     <div className="App">
+      {error && (
+        <div className="error" onClick={(e) => setError("")}>
+          {error}
+        </div>
+      )}
+
       <h1>Chuck Norris jokes</h1>
       <div className="categories">
         <AppContext.Provider
@@ -42,6 +53,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;
