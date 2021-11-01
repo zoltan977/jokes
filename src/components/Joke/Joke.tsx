@@ -1,13 +1,11 @@
 import "./Joke.css";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import AppContext from "../../AppContext/AppContext";
 import httpClient from "axios";
 
-interface IProps {
-  category: string;
-}
-
-const Joke: React.FC<IProps> = ({ category }) => {
+const Joke = () => {
   const [currentJoke, setCurrentJoke] = useState("");
+  const { selectedCategory: category } = useContext(AppContext);
 
   const getRandomJoke = async () => {
     try {

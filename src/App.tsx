@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import CategoryList from "./components/CategoryList/CategoryList";
 import httpClient from "axios";
 import Joke from "./components/Joke/Joke";
+import AppContext from "./AppContext/AppContext";
 
 function App() {
   const [categories, setCategories] = useState<string[]>([]);
@@ -30,12 +31,15 @@ function App() {
       <h1>Chuck Norris jokes</h1>
       <div className="categories">
         <h2>categories</h2>
-        <CategoryList
-          categories={categories}
-          selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
-        />
-        {selectedCategory && <Joke category={selectedCategory} />}
+        <AppContext.Provider
+          value={{
+            selectedCategory,
+            setSelectedCategory,
+          }}
+        >
+          <CategoryList categories={categories} />
+          {selectedCategory && <Joke />}
+        </AppContext.Provider>
       </div>
     </div>
   );

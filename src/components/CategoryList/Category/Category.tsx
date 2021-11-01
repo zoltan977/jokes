@@ -1,14 +1,13 @@
+import { useContext } from "react";
+import AppContext from "../../../AppContext/AppContext";
+
 interface IProps {
   category: string;
-  selectedCategory: string;
-  setSelectedCategory: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const Category: React.FC<IProps> = ({
-  category,
-  selectedCategory,
-  setSelectedCategory,
-}) => {
+const Category: React.FC<IProps> = ({ category }) => {
+  const { selectedCategory, setSelectedCategory } = useContext(AppContext);
+
   return (
     <div
       className="Category"
