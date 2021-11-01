@@ -5,8 +5,8 @@ import getApiData from "../../utils/getApiData";
 
 const Joke = () => {
   const [currentJoke, setCurrentJoke] = useState<string>("");
-  const { selectedCategory: category } = useContext<IAppContext>(AppContext);
-  const [error, setError] = useState<string>("");
+  const { selectedCategory: category, setError } =
+    useContext<IAppContext>(AppContext);
 
   useEffect(() => {
     getApiData(`/random?category=${category}`, setCurrentJoke, setError);
@@ -14,11 +14,6 @@ const Joke = () => {
 
   return (
     <div className="Joke">
-      {error && (
-        <div className="error" onClick={(e) => setError("")}>
-          {error}
-        </div>
-      )}
       <h2>joke</h2>
       <span>{currentJoke}</span>
     </div>

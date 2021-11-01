@@ -31,6 +31,7 @@ const App = () => {
           value={{
             selectedCategory,
             setSelectedCategory,
+            setError,
           }}
         >
           <CategoryList categories={categories} />
