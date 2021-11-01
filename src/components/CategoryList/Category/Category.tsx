@@ -17,6 +17,7 @@ const Category: React.FC<IProps> = ({ category }) => {
   return (
     <div
       className="Category"
+      data-testid="Category"
       style={
         selectedCategory === category
           ? { backgroundColor: "gray", color: "white" }
@@ -24,7 +25,7 @@ const Category: React.FC<IProps> = ({ category }) => {
       }
       onClick={click}
     >
-      <span>{category ? category : "none"}</span>
+      <span data-testid="CategorySpan">{category ? category : "none"}</span>
     </div>
   );
 };

@@ -16,9 +16,9 @@ const Joke = () => {
   }, [category]);
 
   return (
-    <div className="Joke">
+    <div className="Joke" data-testid="Joke">
       <h2>joke</h2>
-      <span>{currentJoke.value}</span>
+      <span data-testid="JokeSpan">{currentJoke.value}</span>
     </div>
   );
 };

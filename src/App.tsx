@@ -18,13 +18,17 @@ const App = () => {
   return (
     <div className="App">
       {error && (
-        <div className="error" onClick={(e) => setError("")}>
+        <div
+          data-testid="error"
+          className="error"
+          onClick={(e) => setError("")}
+        >
           {error}
         </div>
       )}
 
       <h1>Chuck Norris jokes</h1>
-      <div className="CategoriesAndJoke">
+      <div className="CategoriesAndJoke" data-testid="CategoriesAndJoke">
         <AppContext.Provider
           value={{
             selectedCategory,
