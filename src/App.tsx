@@ -30,7 +30,6 @@ function App() {
     <div className="App">
       <h1>Chuck Norris jokes</h1>
       <div className="categories">
-        <h2>categories</h2>
         <AppContext.Provider
           value={{
             selectedCategory,

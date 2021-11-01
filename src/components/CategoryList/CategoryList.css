@@ -1,6 +1,20 @@
 .CategoryList {
   border: 2px solid red;
   width: 50%;
+  margin: 0 auto;
+  padding: 1em;
+}
+
+.CategoryList h2 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto 1em auto;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.CategoryList .content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9,10 +23,5 @@
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   gap: 1em;
-  padding: 1em;
-  margin: 0 auto;
-}
-
-.CategoryList .Category span {
-  cursor: pointer;
+  margin-top: 1em;
 }

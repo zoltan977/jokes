@@ -1,3 +1,4 @@
+import "./Category.css";
 import { useContext } from "react";
 import AppContext from "../../../AppContext/AppContext";
 
@@ -14,7 +15,7 @@ const Category: React.FC<IProps> = ({ category }) => {
       style={{ backgroundColor: selectedCategory === category ? "red" : "" }}
       onClick={(e) => setSelectedCategory(category)}
     >
-      <span>{category}</span>
+      <span>{category ? category : "none"}</span>
     </div>
   );
 };
