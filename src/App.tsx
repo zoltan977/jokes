@@ -1,34 +1,20 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import CategoryList from "./components/CategoryList/CategoryList";
 import httpClient from "axios";
+import CategoryList from "./components/CategoryList/CategoryList";
 import Joke from "./components/Joke/Joke";
 import AppContext from "./AppContext/AppContext";
+import getApiData from "./utils/getApiData";
 
 const App = () => {
+  httpClient.defaults.baseURL = "https://api.chucknorris.io/jokes";
+
   const [categories, setCategories] = useState<string[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [error, setError] = useState("");
-
-  const getCategories = async () => {
-    try {
-      setError("");
-      const response = await httpClient.get(
-        "https://api.chucknorris.io/jokes/categories"
-      );
-      setCategories(response.data);
-    } catch (error: any) {
-      console.log(error);
-
-      const err = error?.response?.data?.error;
-      const msg = error?.response?.data?.message;
-
-      if (err) setError(`${err}: ${msg}`);
-    }
-  };
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [error, setError] = useState<string>("");
 
   useEffect(() => {
-    getCategories();
+    getApiData("/categories", setCategories, setError);
   }, []);
 
   return (
@@ -40,7 +26,7 @@ const App = () => {
       )}
 
       <h1>Chuck Norris jokes</h1>
-      <div className="categories">
+      <div className="CategoriesAndJoke">
         <AppContext.Provider
           value={{
             selectedCategory,

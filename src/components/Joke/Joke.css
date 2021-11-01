@@ -1,6 +1,15 @@
 .Joke {
-  border: 2px solid red;
-  max-width: 50%;
-  margin: 1em auto;
-  padding: 1em;
+  max-width: 100%;
+  margin: 1rem 0;
+  padding: 1rem;
+  -webkit-box-shadow: 1rem 1rem 2rem black;
+  box-shadow: 1rem 1rem 2rem black;
+}
+
+.Joke h2 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto 1rem auto;
+  text-decoration: underline;
 }

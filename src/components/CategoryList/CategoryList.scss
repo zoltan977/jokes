@@ -1,12 +1,12 @@
 .CategoryList {
-  border: 2px solid red;
-  width: 50%;
-  margin: 0 auto;
-  padding: 1em;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 1rem;
+  box-shadow: 1rem 1rem 2rem black;
 
   h2 {
     width: fit-content;
-    margin: 0 auto 1em auto;
+    margin: 0 auto 1rem auto;
     padding: 0;
     text-decoration: underline;
   }
@@ -15,7 +15,7 @@
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    gap: 1em;
-    margin-top: 1em;
+    gap: 1rem;
+    margin-top: 1rem;
   }
 }

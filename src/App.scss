@@ -3,6 +3,15 @@
     text-align: center;
   }
 
+  div.CategoriesAndJoke {
+    width: 90%;
+    margin: 0 auto;
+
+    @media screen and (min-width: 751px) {
+      width: 50%;
+    }
+  }
+
   div.error {
     position: fixed;
     left: 50%;
@@ -16,8 +25,10 @@
     color: red;
     font-weight: bold;
 
-    padding: 1em;
+    padding: 1rem;
 
     cursor: pointer;
+
+    text-align: center;
   }
 }

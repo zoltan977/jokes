@@ -16,7 +16,11 @@ const Category: React.FC<IProps> = ({ category }) => {
   return (
     <div
       className="Category"
-      style={{ backgroundColor: selectedCategory === category ? "red" : "" }}
+      style={
+        selectedCategory === category
+          ? { backgroundColor: "gray", color: "white" }
+          : {}
+      }
       onClick={click}
     >
       <span>{category ? category : "none"}</span>

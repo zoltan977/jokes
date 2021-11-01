@@ -1,9 +1,7 @@
 body {
   font-size: 15px;
-}
 
-@media screen and (min-width: 751px) {
-  body {
+  @media screen and (min-width: 751px) {
     font-size: 25px;
   }
 }

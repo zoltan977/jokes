@@ -1,32 +1,15 @@
 import "./Joke.css";
 import { useEffect, useState, useContext } from "react";
 import AppContext, { IAppContext } from "../../AppContext/AppContext";
-import httpClient from "axios";
+import getApiData from "../../utils/getApiData";
 
 const Joke = () => {
   const [currentJoke, setCurrentJoke] = useState<string>("");
   const { selectedCategory: category } = useContext<IAppContext>(AppContext);
-  const [error, setError] = useState("");
-
-  const getRandomJoke = async () => {
-    try {
-      setError("");
-      const response = await httpClient.get(
-        `https://api.chucknorris.io/jokes/random?category=${category}`
-      );
-      setCurrentJoke(response.data.value);
-    } catch (error: any) {
-      console.log(error);
-
-      const err = error?.response?.data?.error;
-      const msg = error?.response?.data?.message;
-
-      if (err) setError(`${err}: ${msg}`);
-    }
-  };
+  const [error, setError] = useState<string>("");
 
   useEffect(() => {
-    getRandomJoke();
+    getApiData(`/random?category=${category}`, setCurrentJoke, setError);
   }, [category]);
 
   return (
@@ -36,6 +19,7 @@ const Joke = () => {
           {error}
         </div>
       )}
+      <h2>joke</h2>
       <span>{currentJoke}</span>
     </div>
   );
