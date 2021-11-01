@@ -1,13 +1,14 @@
 import "./Category.css";
 import React, { useContext } from "react";
-import AppContext from "../../../AppContext/AppContext";
+import AppContext, { IAppContext } from "../../../AppContext/AppContext";
 
 interface IProps {
   category: string;
 }
 
 const Category: React.FC<IProps> = ({ category }) => {
-  const { selectedCategory, setSelectedCategory } = useContext(AppContext);
+  const { selectedCategory, setSelectedCategory } =
+    useContext<IAppContext>(AppContext);
 
   const click = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     setSelectedCategory(category);

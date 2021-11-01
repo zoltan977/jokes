@@ -8,8 +8,7 @@ const getApiData = async (
   try {
     setError("");
     const response = await httpClient.get(url);
-    if (url.includes("categories")) setData(response.data);
-    else setData(response.data.value);
+    setData(response.data);
   } catch (error: any) {
     console.log(error);
 

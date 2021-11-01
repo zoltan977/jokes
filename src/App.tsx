@@ -1,20 +1,18 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import httpClient from "axios";
 import CategoryList from "./components/CategoryList/CategoryList";
 import Joke from "./components/Joke/Joke";
 import AppContext from "./AppContext/AppContext";
 import getApiData from "./utils/getApiData";
+import { routes } from "./utils/apiRoutes";
 
 const App = () => {
-  httpClient.defaults.baseURL = "https://api.chucknorris.io/jokes";
-
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [error, setError] = useState<string>("");
 
   useEffect(() => {
-    getApiData("/categories", setCategories, setError);
+    getApiData(routes.categories, setCategories, setError);
   }, []);
 
   return (
