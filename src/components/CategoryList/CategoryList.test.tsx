@@ -33,6 +33,7 @@ describe("CategoryList component tests", () => {
         selectedCategory: "",
         setSelectedCategory,
         setError: () => {},
+        setWaitingForTheServer: () => {},
       }
     );
 

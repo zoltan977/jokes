@@ -8,11 +8,19 @@ const Joke = () => {
   const [currentJoke, setCurrentJoke] = useState<{ value: string }>({
     value: "",
   });
-  const { selectedCategory: category, setError } =
-    useContext<IAppContext>(AppContext);
+  const {
+    selectedCategory: category,
+    setError,
+    setWaitingForTheServer,
+  } = useContext<IAppContext>(AppContext);
 
   useEffect(() => {
-    getApiData(routes.categoryJokes(category), setCurrentJoke, setError);
+    getApiData(
+      routes.categoryJokes(category),
+      setCurrentJoke,
+      setError,
+      setWaitingForTheServer
+    );
   }, [category]);
 
   return (

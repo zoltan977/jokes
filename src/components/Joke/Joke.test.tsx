@@ -14,6 +14,7 @@ describe("Joke component tests", () => {
       selectedCategory: "my category",
       setSelectedCategory: () => {},
       setError: () => {},
+      setWaitingForTheServer: () => {},
     });
 
     await waitFor(() => {
