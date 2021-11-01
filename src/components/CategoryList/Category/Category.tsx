@@ -1,14 +1,23 @@
 interface IProps {
-    category: string,
-    setSelectedCategory: React.Dispatch<React.SetStateAction<string>>
+  category: string;
+  selectedCategory: string;
+  setSelectedCategory: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const Category: React.FC<IProps> = ({category, setSelectedCategory}) => {
-    return (
-        <div className="Category" onClick={e => setSelectedCategory(category)}>
-            <span>{category}</span>
-        </div>
-    )
-}
+const Category: React.FC<IProps> = ({
+  category,
+  selectedCategory,
+  setSelectedCategory,
+}) => {
+  return (
+    <div
+      className="Category"
+      style={{ backgroundColor: selectedCategory === category ? "red" : "" }}
+      onClick={(e) => setSelectedCategory(category)}
+    >
+      <span>{category}</span>
+    </div>
+  );
+};
 
-export default Category
+export default Category;
