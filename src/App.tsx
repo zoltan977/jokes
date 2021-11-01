@@ -2,6 +2,7 @@ import './App.css';
 import { useEffect, useState} from 'react';
 import CategoryList from './components/CategoryList/CategoryList';
 import httpClient from 'axios';
+import Joke from './components/Joke/Joke';
 
 function App() {
 
@@ -24,16 +25,16 @@ function App() {
     getCategories()
   }, [])
 
-  useEffect(() => {
-    console.log("selected category: ", selectedCategory)
-  }, [selectedCategory])
-
   return (
     <div className="App">
       <h1>Chuck Norris jokes</h1>
       <div className="categories">
         <h2>categories</h2>
         <CategoryList categories={categories} setSelectedCategory={setSelectedCategory} />
+        {
+          selectedCategory &&
+          <Joke category={selectedCategory} />
+        }
       </div>
     </div>
   );
